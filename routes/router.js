@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
 router.post('/addUser', (req, res) => {
 	console.log("form submit");
 	console.log(req.body);
+	res.redirect('/')
 });
    
 
