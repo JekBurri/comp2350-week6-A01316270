@@ -6,7 +6,7 @@ async function getAllUsers() {
 		SELECT web_user_id, first_name, last_name, email
 		FROM web_user;
 	`;
-	
+
 	try {
 		const results = await database.query(sqlQuery);
 		console.log(results[0]);
@@ -53,7 +53,27 @@ async function addUser(postData) {
 	}
 }
 
+async function deleteUser(webUserId) {
+	let sqlDeleteUser = `
+   DELETE FROM web_user 
+   WHERE web_user_id = :userID
+   `;
+	let params = {
+		userID: webUserId
+	};
+	console.log(sqlDeleteUser);
+	try {
+		await database.query(sqlDeleteUser, params);
+		return true;
+	}
+	catch (err) {
+		console.log(err);
+		return false;
+	}
+}
 
-module.exports = {getAllUsers, addUser}
+
+
+module.exports = { getAllUsers, addUser, deleteUser }
 
 
