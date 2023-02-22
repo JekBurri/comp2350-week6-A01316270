@@ -40,7 +40,7 @@ router.post('/addUser', async (req, res) => {
 	}
 });
 
-router.get('/deleteUser', async (req, res) => {
+router.get('/deleteUser/:id', async (req, res) => {
 	console.log("delete user");
 	console.log(req.query);
 	let userId = req.query.id;
