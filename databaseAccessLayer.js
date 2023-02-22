@@ -40,7 +40,7 @@ async function addUser(postData) {
    `;
 		let params2 = {
 			password: postData.password,
-			pepper: passwordPepper,
+			pepper: passwordPepper.toString(),
 			userId: insertedID
 		}
 		console.log(updatePasswordHash);
